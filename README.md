@@ -1,4 +1,4 @@
-==Code Fellows Assignment
+Code Fellows Assignment
 
 A to-do list app incorporating AJAX & jQuery
 
