@@ -1,0 +1,67 @@
+Connecting to database specified by database.yml
+  [1m[36m (7.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "complete" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120927235101')[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (43.5ms)[0m  INSERT INTO "tasks" ("complete", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["complete", true], ["created_at", Tue, 13 Aug 2013 21:41:22 UTC +00:00], ["name", "Meet Mr. Miyagi"], ["updated_at", Tue, 13 Aug 2013 21:41:22 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tasks" ("complete", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["complete", true], ["created_at", Tue, 13 Aug 2013 21:41:22 UTC +00:00], ["name", "Paint the fence"], ["updated_at", Tue, 13 Aug 2013 21:41:22 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tasks" ("complete", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["complete", false], ["created_at", Tue, 13 Aug 2013 21:41:22 UTC +00:00], ["name", "Wax the car"], ["updated_at", Tue, 13 Aug 2013 21:41:22 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "tasks" ("complete", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["complete", false], ["created_at", Tue, 13 Aug 2013 21:41:22 UTC +00:00], ["name", "Sand the deck"], ["updated_at", Tue, 13 Aug 2013 21:41:22 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-13 14:41:49 -0700
+Connecting to database specified by database.yml
+Processing by TasksController#index as HTML
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."complete" = 'f'[0m
+  Rendered tasks/_task.html.erb (3.9ms)
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."complete" = 't'
+  Rendered tasks/_task.html.erb (2.4ms)
+  Rendered tasks/index.html.erb within layouts/application (28.1ms)
+Compiled layout.css  (102ms)  (pid 11568)
+Compiled tasks.css  (6ms)  (pid 11568)
+Compiled application.css  (127ms)  (pid 11568)
+Compiled jquery.js  (6ms)  (pid 11568)
+Compiled jquery_ujs.js  (1ms)  (pid 11568)
+Compiled tasks.js  (612ms)  (pid 11568)
+Compiled application.js  (693ms)  (pid 11568)
+Completed 200 OK in 2054ms (Views: 978.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/layout.css?body=1" for 127.0.0.1 at 2013-08-13 14:41:52 -0700
+Served asset /layout.css - 200 OK (2ms)
+
+
+Started GET "/assets/tasks.css?body=1" for 127.0.0.1 at 2013-08-13 14:41:52 -0700
+Served asset /tasks.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 14:41:52 -0700
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 14:41:52 -0700
+Served asset /application.css - 200 OK (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 14:41:52 -0700
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/tasks.js?body=1" for 127.0.0.1 at 2013-08-13 14:41:52 -0700
+Served asset /tasks.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 14:41:52 -0700
+Served asset /application.js - 200 OK (54ms)
